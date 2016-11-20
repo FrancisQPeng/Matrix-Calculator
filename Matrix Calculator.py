@@ -122,7 +122,35 @@ def find_A_basis(constraint_matrix, basis):
     return new_matrix
     
 
-                
+def create_identity(size):
+    indexI = 0
+    new_matrix = []
+    for x in range(size):
+        row = []
+        index = 0
+        for y in range(size):
+            if (index == indexI):
+                row.append(1)
+            else:
+                row.append(0)
+            index += 1
+        new_matrix.append(row)
+        indexI += 1
+    return new_matrix
+
+def matrix_add_subtract(left_matrix, right_matrix, mode):
+    new_matrix = []
+    for row1, row2 in zip(left_matrix, right_matrix):
+        print "row1: ", row1, "row2: ", row2
+        new_row = []
+        for item1, item2 in zip(row1, row2):
+            if (mode == 'add'):
+                new_item = item1 + item2
+            elif(mode == 'sub'):
+                new_item = item1 - item2
+            new_row.append(new_item)
+        new_matrix.append(new_row)
+    return new_matrix
     
         
         
@@ -131,3 +159,9 @@ test_matrix = [[3,0,2],[2,0,-2],[0,1,1]]
 test2 = [[1,2,3,4],[6,7,8,9],[2,3,2,1],[3,4,5,1]]
 matrixB = [[1,2,3],[2,3,4],[1,0,5],[4,7,6]]
 matrixC = [[1,2,3,6,7],[2,3,4,3,7],[1,0,5,9,1]]
+inverse_matrixA = invert_matrix(matrixA)
+identity = create_identity(3)
+
+
+
+
