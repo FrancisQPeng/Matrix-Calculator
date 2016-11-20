@@ -141,7 +141,6 @@ def create_identity(size):
 def matrix_add_subtract(left_matrix, right_matrix, mode):
     new_matrix = []
     for row1, row2 in zip(left_matrix, right_matrix):
-        print "row1: ", row1, "row2: ", row2
         new_row = []
         for item1, item2 in zip(row1, row2):
             if (mode == 'add'):
